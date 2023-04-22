@@ -27,6 +27,7 @@ const Order = (props) => {
                                 <tr key={term.id} style={{borderBottom: "2px solid grey"}}>
                                     <td>{term.arrangement.accommodation.name}</td>
                                     <td><img src={term.arrangement.accommodation.photo}
+                                             alt={term.arrangement.accommodation.name}
                                              style={{height: "40px", width: "40px"}}/></td>
                                     <td>{term.from_date}</td>
                                     <td>{term.to_date}</td>
@@ -45,7 +46,7 @@ const Order = (props) => {
                             <td>Total cost: <b>{Number(props.totalPrice).toFixed(2)} € </b></td>
                         </tr>
                         </tfoot>
-                        : <span></span>}
+                        : <tfoot></tfoot>}
 
                 </table>
             </div>

@@ -23,7 +23,6 @@ const Header = (props) => {
         navigate(`/places/filter/${word}`);
     }
 
-    let username = sessionStorage.getItem("username");
     let role = sessionStorage.getItem("role");
 
     let authenticate;
@@ -42,12 +41,12 @@ const Header = (props) => {
     if (role != null && role === "USER") {
         carts = (
             <div>
-                <Link to={"/shoppingcart"} onClick={() => props.onLoadArrangements(username)}
+                <Link to={"/shoppingcart"} onClick={() => props.onLoadArrangements()}
                       className="pe-3 pb-1"><BsFillCartFill/></Link>
                 <Link to={"/orders"}
                       onClick={() => {
-                          props.onGetArrangementsForOrder(username);
-                          props.onGetTotalPriceForOrder(username);
+                          props.onGetArrangementsForOrder();
+                          props.onGetTotalPriceForOrder();
                       }} className="pe-3 pb-1"><BsFillBagCheckFill/></Link>
             </div>
         )
@@ -60,7 +59,7 @@ const Header = (props) => {
             <ul className="dropdown-menu">
                 {props.places.map((term) => {
                         return (
-                            <li>
+                            <li key={term.id}>
                                 <Link className={"dropdown-item"}
                                       onClick={() => {
                                           props.onGet(term.id);
@@ -86,7 +85,7 @@ const Header = (props) => {
             <ul className="dropdown-menu">
                 {props.places.map((term) => {
                         return (
-                            <li>
+                            <li key={term.id}>
                                 <Link className={"dropdown-item"}
                                       onClick={() => {
                                           props.onGet(term.id);
@@ -126,10 +125,10 @@ const Header = (props) => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                <button className="nav-link dropdown-toggle" style={{border:"none", background:"white"}} data-bs-toggle="dropdown"
                                    aria-expanded="false">
                                     Destinations
-                                </a>
+                                </button>
                                 {menu}
                             </li>
                         </ul>

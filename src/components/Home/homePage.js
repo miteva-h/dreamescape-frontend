@@ -46,7 +46,7 @@ const homePage = (props) => {
             </div>
 
             <div style={{
-                backgroundImage: "url(" + "https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-travel-together-white-minimalist-banner-image_195262.jpg" + ")",
+                backgroundImage: "url(https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-travel-together-white-minimalist-banner-image_195262.jpg)",
                 backgroundPosition: 'center',
                 backgroundSize: '1515px 430px',
                 backgroundRepeat: 'no-repeat',
@@ -92,7 +92,7 @@ const homePage = (props) => {
             </div>
 
             <div style={{
-                backgroundImage: "url(" + "https://wallpapercrafter.com/desktop/18504-travel-map-compass-camera-4k.jpg" + ")",
+                backgroundImage: "url(https://wallpapercrafter.com/desktop/18504-travel-map-compass-camera-4k.jpg)",
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
@@ -104,13 +104,13 @@ const homePage = (props) => {
                     <div className="rounded-3 text-white text-center d-inline-block align-middle w-50"
                          style={{background: "#4593b0", border: "10px solid #4593b0", marginTop: "125px"}}>
                         <h3>Follow us and explore the world with Dream Escape:</h3>
-                        <p>
+                        <div>
                             <SocialIcon url="https://facebook.com/in/#" fgColor="white" bgColor="#4593b0"/>
                             <SocialIcon url="https://twitter.com/in/#" fgColor="white" bgColor="#4593b0"/>
                             <SocialIcon url="https://instagram.com/in/#" fgColor="white" bgColor="#4593b0"/>
                             <SocialIcon url="https://youtube.com/in/#" fgColor="white" bgColor="#4593b0"/>
                             <SocialIcon url="https://linkedin.com/in/#" fgColor="white" bgColor="#4593b0"/>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,20 +126,20 @@ const homePage = (props) => {
                         <div className="col-2"></div>
                         <div className="col-8 mt-3 mb-2 rounded-3 h-75 pt-3" style={{border: "2px solid #c4a329"}}>
                             <div className="float-end w-50 ps-5">
-                                <h5><a href="#" className="text-white text-decoration-none">Travel insurance</a></h5>
-                                <h5><a href="#" className="text-white text-decoration-none">Information
+                                <h5><a href="/home" className="text-white text-decoration-none">Travel insurance</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">Information
                                     confidentiality</a></h5>
-                                <h5><a href="#" className="text-white text-decoration-none">Cookies policy</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">Cookies policy</a></h5>
                             </div>
                             <div className="float-end w-25">
-                                <h5><a href="#" className="text-white text-decoration-none">Conditions</a></h5>
-                                <h5><a href="#" className="text-white text-decoration-none">Politics</a></h5>
-                                <h5><a href="#" className="text-white text-decoration-none">Dream Escape club</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">Conditions</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">Politics</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">Dream Escape club</a></h5>
                             </div>
                             <div className="float-end w-25 ps-5">
-                                <h5><a href="#" className="text-white text-decoration-none">About us</a></h5>
-                                <h5><a href="#" className="text-white text-decoration-none">Contact</a></h5>
-                                <h5><a href="#" className="text-white text-decoration-none">Career</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">About us</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">Contact</a></h5>
+                                <h5><a href="/home" className="text-white text-decoration-none">Career</a></h5>
                             </div>
                         </div>
                         <div className="col-2"></div>

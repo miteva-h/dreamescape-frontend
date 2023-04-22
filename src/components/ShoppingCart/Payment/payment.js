@@ -10,29 +10,11 @@ const PaymentForm = (props) => {
     const navigate = useNavigate();
 
     const [amount, setAmount] = useState(props.amount);
-    const [stripeToken, setStripeToken] = useState(null);
     const [error, setError] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // try {
-        //     const response = await axios.post('/api/payment', {
-        //         amount,
-        //         currency: 'EURO',
-        //         description: 'Test charge',
-        //         stripeToken,
-        //         user: username
-        //     });
-        //     console.log(response);
-        // } catch (err) {
-        //     setError(err.message);
-        // }
     };
-
-    // const handleStripeToken = (token) => {
-    //     setStripeToken(token.id);
-    // };
 
     const handleStripeToken = async (token) => {
         try {

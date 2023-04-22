@@ -1,6 +1,6 @@
 import React from 'react';
 import DreamescapeService from "../../repository/dreamescapeRepository";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 const Register = (props) => {

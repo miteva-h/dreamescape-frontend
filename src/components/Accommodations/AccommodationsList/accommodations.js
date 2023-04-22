@@ -24,15 +24,15 @@ const accommodations = (props) => {
                         return (
                             <tr key={term.id}>
                                 <td>{term.name}</td>
-                                <td><img src={term.photo} style={{height: "30px", width: "30px"}}/></td>
+                                <td><img src={term.photo} alt={term.name} style={{height: "30px", width: "30px"}}/></td>
                                 <td>{term.typeOfAccommodation}</td>
                                 <td>{term.typeOfBoard}</td>
                                 <td>{term.description}</td>
                                 <td>{term.place.name}</td>
                                 <td>{term.pricePerNight}</td>
                                 <td>
-                                    <a title={"Delete"} className={"btn btn-danger me-1"}
-                                       onClick={() => props.onDelete(term.id)}>Delete</a>
+                                    <button title={"Delete"} className={"btn btn-danger me-1"}
+                                       onClick={() => props.onDelete(term.id)}>Delete</button>
                                 </td>
                                 <td>
                                     <Link className={"btn btn-primary"}

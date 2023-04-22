@@ -20,8 +20,8 @@ const places = (props) => {
                                 <td>{term.name}</td>
                                 <td>{term.location}</td>
                                 <td>
-                                    <a title={"Delete"} className={"btn btn-danger me-1"}
-                                       onClick={() => props.onDelete(term.id)}>Delete</a>
+                                    <button title={"Delete"} className={"btn btn-danger me-1"}
+                                       onClick={() => props.onDelete(term.id)}>Delete</button>
                                     <Link className={"btn btn-primary"}
                                           onClick={() => props.onGet(term.id)}
                                           to={`/places/${term.id}/edit`}>

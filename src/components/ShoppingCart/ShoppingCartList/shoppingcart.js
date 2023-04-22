@@ -3,8 +3,6 @@ import {Link} from "react-router-dom";
 
 const ShoppingCart = (props) => {
 
-    let username = sessionStorage.getItem("username");
-
     return (
         <div style={{
             height: "90vh", width: "100%", overflow: "hidden"
@@ -29,13 +27,14 @@ const ShoppingCart = (props) => {
                                 <tr key={term.id} style={{borderBottom: "2px solid grey"}}>
                                     <td>{term.arrangement.accommodation.name}</td>
                                     <td><img src={term.arrangement.accommodation.photo}
+                                             alt={term.arrangement.accommodation.name}
                                              style={{height: "40px", width: "40px"}}/></td>
                                     <td>{term.from_date}</td>
                                     <td>{term.to_date}</td>
                                     <td>{term.price} €</td>
                                     <td>
-                                        <a title={"Delete"} className={"btn btn-danger me-1"}
-                                           onClick={() => props.onDelete(term.id, username)}>Delete</a>
+                                        <button title={"Delete"} className={"btn btn-danger me-1"}
+                                           onClick={() => props.onDelete(term.id)}>Delete</button>
                                     </td>
                                     <td>
                                         <Link to={"/payment"} onClick={()=>props.onGetInfo(term.price, term.id)} className="btn btn-light">PAY</Link>

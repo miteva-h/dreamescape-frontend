@@ -26,7 +26,7 @@ class Place extends React.Component {
             }}>
                 <div style={{
                     width: "100%",
-                    backgroundImage: "url(" + "https://a-static.besthdwallpaper.com/beautiful-sea-beach-wallpaper-2048x576-3614_71.jpg" + ")",
+                    backgroundImage: "url(https://a-static.besthdwallpaper.com/beautiful-sea-beach-wallpaper-2048x576-3614_71.jpg)",
                     height: "40vh",
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
@@ -67,7 +67,6 @@ class Place extends React.Component {
                                            nextLabel={">>"}
                                            breakLabel={<a href="/#">...</a>}
                                            breakClassName={"break-me"}
-                                           pageClassName={"ml-1"}
                                            pageCount={pageCount}
                                            marginPagesDisplayed={2}
                                            pageRangeDisplayed={5}
@@ -79,7 +78,7 @@ class Place extends React.Component {
                                            previousLinkClassName={"page-link"}
                                            nextClassName={"page-item"}
                                            nextLinkClassName={"page-link"}
-                                           pageClassName={"page-item"}
+                                           pageClassName={"ml-1 page-item"}
                                            pageLinkClassName={"page-link"}/>
                         </div>
                     </div>

@@ -67,8 +67,9 @@ class App extends Component {
                         onGetTotalPriceForOrder={this.loadTotalPriceForOrder}/>
                 <main>
                     <Routes>
-                        {["/", "/home"].map((path) => {
-                            return (<Route path={path}
+                        {["/", "/home"].map((path, index) => {
+                            return (<Route key={index}
+                                           path={path}
                                            element={<HomePage/>}/>)
                         })}
                         <Route path="/places"
@@ -321,21 +322,21 @@ class App extends Component {
     addArrangement = (from_date, to_date, accommodation, price, username) => {
         DreamescapeService.addArrangement(from_date, to_date, accommodation, price, username)
             .then(() => {
-                this.loadArrangements(username);
+                this.loadArrangements();
             });
     }
 
-    loadArrangements = (username) => {
-        DreamescapeService.fetchArrangements(username)
+    loadArrangements = () => {
+        DreamescapeService.fetchArrangements()
             .then((data) => {
                 this.setState({arrangementsInShoppingCart: data.data})
             });
     }
 
-    deleteArrangement = (id, username) => {
+    deleteArrangement = (id) => {
         DreamescapeService.deleteArrangement(id)
             .then(() => {
-                this.loadArrangements(username);
+                this.loadArrangements();
             });
     }
 
@@ -374,15 +375,15 @@ class App extends Component {
         this.setState({amountForOrder: amount, arrangementForOrder: arrangement});
     }
 
-    loadArrangementsForOrders = (username) => {
-        DreamescapeService.fetchArrangementsInOrder(username)
+    loadArrangementsForOrders = () => {
+        DreamescapeService.fetchArrangementsInOrder()
             .then((data) => {
                 this.setState({arrangementsInOrder: data.data})
             });
     }
 
-    loadTotalPriceForOrder = (username) => {
-        DreamescapeService.fetchTotalPriceForOrder(username)
+    loadTotalPriceForOrder = () => {
+        DreamescapeService.fetchTotalPriceForOrder()
             .then((data) => {
                 this.setState({totalPriceForOrder: data.data})
             });

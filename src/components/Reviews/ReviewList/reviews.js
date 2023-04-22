@@ -58,8 +58,8 @@ const Review = (props) => {
                                         value={term}
                                         onChange={handleChange}
                                     />
-                                    {term == 1 ?
-                                        <span><BsFillEmojiFrownFill></BsFillEmojiFrownFill></span> : term == 3 ?
+                                    {term === 1 ?
+                                        <span><BsFillEmojiFrownFill></BsFillEmojiFrownFill></span> : term === 3 ?
                                             <span><BsFillEmojiNeutralFill></BsFillEmojiNeutralFill></span> :
                                             <span><BsFillEmojiSmileFill></BsFillEmojiSmileFill></span>}
                                 </span>
@@ -77,7 +77,7 @@ const Review = (props) => {
     return (
         <div style={{
             height: "110vh",
-            backgroundImage: "url(" + "https://img.freepik.com/free-vector/realistic-travel-background-with-elements_52683-77784.jpg?size=626&ext=jpg" + ")",
+            backgroundImage: "url(https://img.freepik.com/free-vector/realistic-travel-background-with-elements_52683-77784.jpg?size=626&ext=jpg)",
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -96,7 +96,7 @@ const Review = (props) => {
                     alignItems: 'end',
                     justifyContent: 'end'
                 }}>
-                    <img src={props.accommodation.photo} style={{width: "80%", height: "auto"}} className="pe-0"/>
+                    <img src={props.accommodation.photo} alt={props.accommodation.name} style={{width: "80%", height: "auto"}} className="pe-0"/>
 
                 </div>
                 <div className="float-start w-50 h-auto">
@@ -119,15 +119,15 @@ const Review = (props) => {
                                         <td><BsFillFilePersonFill></BsFillFilePersonFill>{term.user.username}</td>
                                         <td>{term.reviewText}</td>
                                         <td>
-                                            {term.stars == 1 ?
-                                                <span><BsFillEmojiFrownFill></BsFillEmojiFrownFill></span> : term.stars == 3 ?
+                                            {term.stars === 1 ?
+                                                <span><BsFillEmojiFrownFill></BsFillEmojiFrownFill></span> : term.stars === 3 ?
                                                     <span><BsFillEmojiNeutralFill></BsFillEmojiNeutralFill></span> :
                                                     <span><BsFillEmojiSmileFill></BsFillEmojiSmileFill></span>}
                                         </td>
                                         <td> {
-                                            username != null && term.user.username == username
-                                                ? <a title={"Delete"} className={"btn btn-danger me-1"}
-                                                     onClick={() => props.onDeleteReview(term.id, props.accommodation.id)}>Delete</a>
+                                            username != null && term.user.username === username
+                                                ? <button title={"Delete"} className={"btn btn-danger me-1"}
+                                                     onClick={() => props.onDeleteReview(term.id, props.accommodation.id)}>Delete</button>
                                                 : <span></span>
                                         }</td>
                                     </tr>

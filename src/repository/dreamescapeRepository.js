@@ -32,13 +32,13 @@ const DreamescapeService = {
 
 
     fetchPhotosForPlace: (id) => {
-        return axios.get(`/photos/place/${id}`);
+        return axios.get(`/places/${id}/photos`);
     },
     fetchPhoto: (id) => {
         return axios.get(`/photos/${id}`);
     },
     addPhotoForPlace: (id, photoURL) => {
-        return axios.post(`/photos/add/place/${id}`, {
+        return axios.post(`/places/${id}/photo`, {
             "photoURL": photoURL
         });
     },
@@ -56,16 +56,16 @@ const DreamescapeService = {
         return axios.get("/accommodations");
     },
     fetchAccommodationsByPlace: (id) => {
-        return axios.get(`/accommodations/place/${id}`);
+        return axios.get(`/places/${id}/accommodations`);
     },
     fetchAccommodation: (id) => {
         return axios.get(`/accommodations/${id}`);
     },
     fetchTypesOfAccommodation: () => {
-        return axios.get("/accommodations/typesOfAccommodation");
+        return axios.get("/accommodations/type");
     },
     fetchTypesOfBoard: () => {
-        return axios.get("/accommodations/typesOfBoard");
+        return axios.get("/accommodations/board");
     },
     addAccommodation: (name, typeOfAccommodation, typeOfBoard, description, place, pricePerNight, photo) => {
         return axios.post("/accommodations/add", {
@@ -116,7 +116,7 @@ const DreamescapeService = {
 
 
     fetchDatesForAccommodation: (id) => {
-        return axios.get(`/arrangements/accommodation/${id}`);
+        return axios.get(`/accommodations/${id}/arrangements`);
     },
     addArrangement: (from_date, to_date, accommodation, price, username) => {
         return axios.post("/arrangements/add", {
@@ -127,8 +127,8 @@ const DreamescapeService = {
             "username": username
         });
     },
-    fetchArrangements: (username) => {
-        return axios.get(`/arrangements/user/${username}`);
+    fetchArrangements: () => {
+        return axios.get("/arrangements/user");
     },
     deleteArrangement: (id) => {
         return axios.delete(`/arrangements/${id}/delete`);
@@ -136,7 +136,7 @@ const DreamescapeService = {
 
 
     fetchReviewsForAccommodation: (id) => {
-        return axios.get(`/reviews/accommodation/${id}`);
+        return axios.get(`/accommodations/${id}/reviews`);
     },
     addReview: (reviewText, stars, username, accommodation) => {
         return axios.post("/reviews/add", {
@@ -156,11 +156,11 @@ const DreamescapeService = {
     },
 
 
-    fetchArrangementsInOrder: (username) => {
-        return axios.get(`/orders/user/${username}`);
+    fetchArrangementsInOrder: () => {
+        return axios.get("/orders/user");
     },
-    fetchTotalPriceForOrder: (username) => {
-        return axios.get(`/orders/totalPrice/${username}`);
+    fetchTotalPriceForOrder: () => {
+        return axios.get("/orders/totalPrice");
     }
 }
 

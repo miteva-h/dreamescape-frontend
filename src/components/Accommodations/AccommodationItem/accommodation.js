@@ -18,10 +18,10 @@ const Accommodation = (props) => {
     const dateToString = (day, month, year) => {
         var d = day.toString();
         var m = month.toString();
-        if (d.length == 1) {
+        if (d.length === 1) {
             d = "0" + d;
         }
-        if (m.length == 1) {
+        if (m.length === 1) {
             m = "0" + m;
         }
         return year + "-" + m + "-" + d;
@@ -38,12 +38,12 @@ const Accommodation = (props) => {
     if (end !== undefined) {
         end = end.substring(0, 15);
 
-        var e = new Date(end);
+        e = new Date(end);
         e = dateToString(e.getDate(), e.getMonth() + 1, e.getFullYear());
 
     }
 
-    var s = new Date(start);
+    s = new Date(start);
     s = dateToString(s.getDate(), s.getMonth() + 1, s.getFullYear());
 
     var priceToPay = 0;
@@ -72,7 +72,7 @@ const Accommodation = (props) => {
     return (
         <div style={{
             height: "110vh",
-            backgroundImage: "url(" + "https://img.freepik.com/free-vector/realistic-travel-background-with-elements_52683-77784.jpg?size=626&ext=jpg" + ")",
+            backgroundImage: "url(https://img.freepik.com/free-vector/realistic-travel-background-with-elements_52683-77784.jpg?size=626&ext=jpg)",
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -91,10 +91,12 @@ const Accommodation = (props) => {
                     alignItems: 'end',
                     justifyContent: 'end'
                 }}>
-                    <img src={props.accommodation.photo} style={{width: "80%", height: "auto"}} className="pe-0"/>
+                    <img src={props.accommodation.photo} alt={props.accommodation.name}
+                         style={{width: "80%", height: "auto"}} className="pe-0"/>
                 </div>
                 <div className="float-start w-50 h-auto">
                     <table className="table" style={{borderCollapse: "collapse", background: "#cbebf5"}}>
+                        <tbody>
                         <tr style={{borderBottom: "1px solid grey"}}>
                             <td className="ps-3">Name:</td>
                             <td><b>{props.accommodation.name}</b></td>
@@ -120,6 +122,7 @@ const Accommodation = (props) => {
                                                       onClick={() => props.onGetReviews(props.accommodation.id)}
                                                       className="btn btn-light">REVIEWS</Link></td>
                         </tr>
+                        </tbody>
                     </table>
                     <div>
                         <Calendar tileDisabled={tileDisabled} onChange={onChange} value={value} selectRange={true}/>

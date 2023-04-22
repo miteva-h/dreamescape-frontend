@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 
 const PlacePhotos = (props) => {
@@ -12,8 +12,8 @@ const PlacePhotos = (props) => {
                         <div className="card" style={{width: "18rem"}}>
                             <img src={term.photoURL} className="card-img-top" alt="..."/>
                             <div className="card-body">
-                                <a title={"Delete"} className={"btn btn-danger me-1"}
-                                   onClick={() => props.onDelete(term.id, props.place.id)}>Delete</a>
+                                <button title={"Delete"} className={"btn btn-danger me-1"}
+                                   onClick={() => props.onDelete(term.id, props.place.id)}>Delete</button>
                                 <Link className={"btn btn-primary"}
                                       onClick={() => props.onGet(term.id)}
                                       to={`/photos/${term.id}/edit`}>
