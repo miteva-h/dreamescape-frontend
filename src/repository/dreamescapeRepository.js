@@ -12,18 +12,20 @@ const DreamescapeService = {
     fetchPlace: (id) => {
         return axios.get(`/places/${id}`);
     },
-    addPlace: (name, location, description) => {
+    addPlace: (name, location, description, coordinate_x, coordinate_y) => {
         return axios.post("/places/add", {
             "name": name,
-            "location": location,
-            "description": description
+            "description": description,
+            "coordinate_x": coordinate_x,
+            "coordinate_y": coordinate_y
         });
     },
-    editPlace: (id, name, location, description) => {
+    editPlace: (id, name, location, description, coordinate_x, coordinate_y) => {
         return axios.put(`/places/${id}/edit`, {
             "name": name,
-            "location": location,
-            "description": description
+            "description": description,
+            "coordinate_x": coordinate_x,
+            "coordinate_y": coordinate_y
         });
     },
     deletePlace: (id) => {
@@ -67,23 +69,31 @@ const DreamescapeService = {
     fetchTypesOfBoard: () => {
         return axios.get("/accommodations/board");
     },
-    addAccommodation: (name, typeOfAccommodation, typeOfBoard, description, place, pricePerNight, photo) => {
+    addAccommodation: (name, typeOfAccommodation, typeOfBoard, sleeps, destination, description, coordinate_x, coordinate_y, place, pricePerNight, photo) => {
         return axios.post("/accommodations/add", {
             "name": name,
             "typeOfAccommodation": typeOfAccommodation,
             "typeOfBoard": typeOfBoard,
+            "sleeps": sleeps,
+            "destination": destination,
             "description": description,
+            "coordinate_x": coordinate_x,
+            "coordinate_y": coordinate_y,
             "place": place,
             "pricePerNight": pricePerNight,
             "photo": photo
         });
     },
-    editAccommodation: (id, name, typeOfAccommodation, typeOfBoard, description, place, pricePerNight, photo) => {
+    editAccommodation: (id, name, typeOfAccommodation, typeOfBoard, sleeps, destination, description, coordinate_x, coordinate_y, place, pricePerNight, photo) => {
         return axios.put(`/accommodations/${id}/edit`, {
             "name": name,
             "typeOfAccommodation": typeOfAccommodation,
             "typeOfBoard": typeOfBoard,
+            "sleeps": sleeps,
+            "destination": destination,
             "description": description,
+            "coordinate_x": coordinate_x,
+            "coordinate_y": coordinate_y,
             "place": place,
             "pricePerNight": pricePerNight,
             "photo": photo
@@ -97,14 +107,14 @@ const DreamescapeService = {
     fetchRoles: () => {
         return axios.get("/api/roles");
     },
-    register: (username, password, repeatPassword, firstName, lastName, role) => {
+    register: (username, password, repeatPassword, firstName, lastName) => {
         return axios.post("/api/register", {
             "username": username,
             "password": password,
             "repeatPassword": repeatPassword,
             "firstName": firstName,
             "lastName": lastName,
-            "role": role
+            // "role": role
         });
     },
     login: (username, password) => {
@@ -127,6 +137,12 @@ const DreamescapeService = {
             "username": username
         });
     },
+    fetchBookedArrangements: () => {
+        return axios.get("/arrangements/booked");
+    },
+    fetchPaidArrangements: () => {
+        return axios.get("/arrangements/paid");
+    },
     fetchArrangements: () => {
         return axios.get("/arrangements/user");
     },
@@ -134,10 +150,10 @@ const DreamescapeService = {
         return axios.delete(`/arrangements/${id}/delete`);
     },
 
-
     fetchReviewsForAccommodation: (id) => {
         return axios.get(`/accommodations/${id}/reviews`);
     },
+
     addReview: (reviewText, stars, username, accommodation) => {
         return axios.post("/reviews/add", {
             "reviewText": reviewText,
@@ -146,19 +162,19 @@ const DreamescapeService = {
             "accommodation": accommodation
         });
     },
+
     deleteReview: (id) => {
         return axios.delete(`/reviews/${id}/delete`);
     },
-
 
     fetchFilterPlace: (word) => {
         return axios.get(`/places/filter/${word}`);
     },
 
-
     fetchArrangementsInOrder: () => {
         return axios.get("/orders/user");
     },
+
     fetchTotalPriceForOrder: () => {
         return axios.get("/orders/totalPrice");
     }

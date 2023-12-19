@@ -1,10 +1,16 @@
 import React from "react";
+import marble from "../../photos/white_marble.avif";
 
 const footer = (props) => {
     let currentDate = new Date().getFullYear();
     return (
         <footer className="text-center"
-                style={{height: "30px", bottom: "-20px", width: "100%", background: "#4593b0", opacity: "0.7"}}>
+                style={{
+                    background:"black",
+                    color:"white",
+                    height: "auto",
+                    width: "100%",
+                }}>
             &copy; {currentDate} - DreamEscape
         </footer>
     );

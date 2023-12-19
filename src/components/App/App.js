@@ -2,6 +2,9 @@ import './App.css';
 import React, {Component} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "../Home/homePage"
+import AboutUs from "../Home/aboutUs"
+import Career from "../Home/career"
+import Contact from "../Home/contact"
 import Header from "../Header/header"
 import Footer from "../Footer/footer"
 import Places from "../Places/PlacesList/places"
@@ -16,6 +19,8 @@ import AccommodationAdd from "../Accommodations/AccommodationAdd/accommodationAd
 import AccommodationEdit from "../Accommodations/AccommodationEdit/accommodationEdit"
 import Place from "../Places/PlaceItem/place"
 import Accommodation from "../Accommodations/AccommodationItem/accommodation"
+import BookedArrangements from "../Arrangements/bookedArrangements"
+import PaidArrangements from "../Arrangements/paidArrangements"
 import ShoppingCart from "../ShoppingCart/ShoppingCartList/shoppingcart"
 import PaymentForm from "../ShoppingCart/Payment/payment"
 import Order from "../Orders/orders"
@@ -44,6 +49,8 @@ class App extends Component {
             typesOfBoard: [],
             roles: [],
             datesNotAvailable: [],
+            bookedArrangements: [],
+            paidArrangements: [],
             arrangementsInShoppingCart: [],
             reviewsForAccommodation: [],
             amountForOrder: {},
@@ -72,6 +79,12 @@ class App extends Component {
                                            path={path}
                                            element={<HomePage/>}/>)
                         })}
+                        <Route path="/aboutUs"
+                               element={<AboutUs/>}/>
+                        <Route path="/career"
+                               element={<Career/>}/>
+                        <Route path="/contact"
+                               element={<Contact/>}/>
                         <Route path="/places"
                                element={<Places places={this.state.places}
                                                 onDelete={this.deletePlace}
@@ -82,7 +95,7 @@ class App extends Component {
                                element={<PlaceAdd onAddPlace={this.addPlace}/>}/>
                         <Route path="/places/:id/edit"
                                element={<PlaceEdit onEditPlace={this.editPlace}
-                                                   place={this.state.selectedPlace}/>}/>}
+                                                   place={this.state.selectedPlace}/>}/>
                         <Route path="/accommodations/place/:id"
                                element={<PlaceAccommodations accommodations={this.state.accommodationsByPlace}/>}/>
 
@@ -131,7 +144,11 @@ class App extends Component {
                                                        onAddArrangement={this.addArrangement}
                                                        onGetReviews={this.loadReviewsForAccommodation}
                                                        onGetAccommodation={this.loadAccommodation}/>}/>
-
+                        <Route path="arrangements/booked"
+                               element={<BookedArrangements arrangements={this.state.bookedArrangements}
+                                                            onDelete={this.deleteArrangement}/>}/>
+                        <Route path="arrangements/paid"
+                               element={<PaidArrangements arrangements={this.state.paidArrangements}/>}/>
                         <Route path="/shoppingcart"
                                element={<ShoppingCart arrangements={this.state.arrangementsInShoppingCart}
                                                       onDelete={this.deleteArrangement}
@@ -163,7 +180,7 @@ class App extends Component {
                                element={<Login onLogin={this.fetchData}/>}/>
                     </Routes>
                 </main>
-                <Footer/>
+                {/*<Footer/>*/}
             </BrowserRouter>
         )
     }
@@ -189,15 +206,15 @@ class App extends Component {
             });
     }
 
-    addPlace = (name, location, description) => {
-        DreamescapeService.addPlace(name, location, description)
+    addPlace = (name, description, coordinate_x, coordinate_y) => {
+        DreamescapeService.addPlace(name, description, coordinate_x, coordinate_y)
             .then(() => {
                 this.loadPlaces();
             });
     }
 
-    editPlace = (id, name, location, description) => {
-        DreamescapeService.editPlace(id, name, location, description)
+    editPlace = (id, name, description, coordinate_x, coordinate_y) => {
+        DreamescapeService.editPlace(id, name, description, coordinate_x, coordinate_y)
             .then(() => {
                 this.loadPlaces();
             });
@@ -282,15 +299,15 @@ class App extends Component {
             });
     }
 
-    addAccommodation = (name, typeOfAccommodation, typeOfBoard, description, place, pricePerNight, photo) => {
-        DreamescapeService.addAccommodation(name, typeOfAccommodation, typeOfBoard, description, place, pricePerNight, photo)
+    addAccommodation = (name, typeOfAccommodation, typeOfBoard, sleeps, destination, description, coordinate_x, coordinate_y, place, pricePerNight, photo) => {
+        DreamescapeService.addAccommodation(name, typeOfAccommodation, typeOfBoard, sleeps, destination, description, coordinate_x, coordinate_y, place, pricePerNight, photo)
             .then(() => {
                 this.loadAccommodations();
             });
     }
 
-    editAccommodation = (id, name, typeOfAccommodation, typeOfBoard, description, place, pricePerNight, photo) => {
-        DreamescapeService.editAccommodation(id, name, typeOfAccommodation, typeOfBoard, description, place, pricePerNight, photo)
+    editAccommodation = (id, name, typeOfAccommodation, typeOfBoard, sleeps, destination, description, coordinate_x, coordinate_y, place, pricePerNight, photo) => {
+        DreamescapeService.editAccommodation(id, name, typeOfAccommodation, typeOfBoard, sleeps, destination, description, coordinate_x, coordinate_y, place, pricePerNight, photo)
             .then(() => {
                 this.loadAccommodations();
             });
@@ -323,6 +340,20 @@ class App extends Component {
         DreamescapeService.addArrangement(from_date, to_date, accommodation, price, username)
             .then(() => {
                 this.loadArrangements();
+            });
+    }
+
+    loadBookedArrangements = () => {
+        DreamescapeService.fetchBookedArrangements()
+            .then((data) => {
+                this.setState({bookedArrangements: data.data})
+            });
+    }
+
+    loadPaidArrangements = () => {
+        DreamescapeService.fetchPaidArrangements()
+            .then((data) => {
+                this.setState({paidArrangements: data.data})
             });
     }
 
@@ -395,6 +426,8 @@ class App extends Component {
         this.loadTypesOfBoard();
         this.loadAccommodations();
         this.loadRoles();
+        this.loadBookedArrangements();
+        this.loadPaidArrangements();
     }
 
     fetchData = () => {
