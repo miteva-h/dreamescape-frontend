@@ -5,7 +5,7 @@ import marble from "../../../photos/white_marble.avif";
 const places = (props) => {
     return (
         <div style={{
-            backgroundImage: `url(${marble})`,
+            backgroundImage: `url(https://drive.google.com/uc?export=download&id=12_-K20wkci_BtjUNpSv_KGPL4VUcNinh)`,
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',

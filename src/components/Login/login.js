@@ -1,8 +1,6 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import DreamescapeService from "../../repository/dreamescapeRepository";
-import marble from "../../photos/white_marble.avif";
-
 
 const Login = (props) => {
 
@@ -48,7 +46,7 @@ const Login = (props) => {
 
     return (
         <div style={{
-            backgroundImage: `url(${marble})`,
+            backgroundImage: `url(https://drive.google.com/uc?export=download&id=12_-K20wkci_BtjUNpSv_KGPL4VUcNinh)`,
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
