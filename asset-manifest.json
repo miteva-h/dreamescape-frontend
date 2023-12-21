@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/dreamescape-frontend/static/css/main.96883b7d.css",
+    "main.js": "/dreamescape-frontend/static/js/main.61de5a52.js",
+    "static/js/787.9f6e3bb0.chunk.js": "/dreamescape-frontend/static/js/787.9f6e3bb0.chunk.js",
+    "static/media/white_marble.avif": "/dreamescape-frontend/static/media/white_marble.9d99482429a3c21928e0.avif",
+    "index.html": "/dreamescape-frontend/index.html",
+    "main.96883b7d.css.map": "/dreamescape-frontend/static/css/main.96883b7d.css.map",
+    "main.61de5a52.js.map": "/dreamescape-frontend/static/js/main.61de5a52.js.map",
+    "787.9f6e3bb0.chunk.js.map": "/dreamescape-frontend/static/js/787.9f6e3bb0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96883b7d.css",
+    "static/js/main.61de5a52.js"
+  ]
+}
