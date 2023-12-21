@@ -11,14 +11,14 @@ const filterPlaces = (props) => {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            height: "auto",
+            height: "120vh",
             width: "100%",
         }}>
             <div className="container pt-5">
-                {props.places.length > 0 ? <div className={"row pb-5"}>
+                {props.places.length > 0 ? <div className={"row pb-5"} >
                         {props.places.map((term) => {
                                 return (
-                                    <div className="col-4">
+                                    <div className="col-4" style={{height:"10em"}}>
                                         <div className="card me-2 p-0 rounded-4 bg-light"
                                              style={{width: "100%", height: "auto"}}>
                                             <div className="card-header bg-black text-white text-center"
@@ -27,7 +27,7 @@ const filterPlaces = (props) => {
                                                 <h1>{term.name}</h1>
                                             </div>
                                             <div className="card-body">
-                                                <h6 className="card-subtitle mt-3 mb-5 text-muted">
+                                                <h6 className="card-subtitle mt-3 mb-5 text-muted" style={{height:"18em"}}>
                                                     {term.description}</h6>
                                                 <div className="d-flex align-items-center">
                                                     <MapContainer
