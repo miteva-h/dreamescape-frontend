@@ -3,7 +3,6 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import {Link} from "react-router-dom";
 import {FaHamburger, FaBed, FaEuroSign, FaRegCalendarAlt} from "react-icons/fa";
-import marble from '../../../photos/white_marble.avif';
 import {BsFillGeoAltFill} from "react-icons/bs";
 import L from 'leaflet';
 import {MapContainer, Marker, TileLayer} from "react-leaflet";

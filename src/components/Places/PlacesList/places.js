@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import marble from "../../../photos/white_marble.avif";
 
 const places = (props) => {
     return (
